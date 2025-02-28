@@ -1,0 +1,91 @@
+1. Javascript
+    a. Phạm vi của biến, var và let
+        - Phạm vi của biến
+            - var: global
+            - let: local
+            - Scope: {}
+        - Hoisting: là cơ chế mặc định của JavaScript để di chuyển tất cả các biến và hàm khi khai báo lên đầu scope trước khi chúng được thực thi.
+            - var: Biến được hoisted lên đầu phạm vi, cho phép bạn sử dụng biến trước khi khai báo. Tuy nhiên, giá trị của biến sẽ là undefined 
+                    cho đến khi nó được khởi tạo. Điều này có thể dẫn đến các lỗi khó phát hiện nếu bạn không cẩn thận.
+                - Vd:
+                    console.log(a); // => undefined
+                    var a = 5;
+            - let và const: Biến cũng được hoisted, nhưng nằm trong Temporal Dead Zone cho đến khi khai báo. Điều này có nghĩa là bạn không thể 
+                    truy cập biến trước khi khai báo, giúp tránh được các lỗi liên quan đến việc sử dụng biến chưa được khởi tạo. 
+                    let và const cung cấp một cơ chế kiểm soát tốt hơn và giảm thiểu lỗi so với var.
+                - Vd:
+                    console.log(b); // => cannot access 'a' before initialization
+                    let b = 5;
+    b. Điều kiện nâng cao: if...else, if...else if, switch...case default
+        - if...else
+            if (condition) {
+                // code run if condition = true
+            } else {
+                // code run if condition = false
+            }
+        - if...else if
+            if (condition 1) {
+                // code run if condition 1 = true
+            } else  if (condition 2) {
+                // code run if condition 2 = true
+            } else  if (condition 3) {
+                // code run if condition 3 = true
+            } else {
+                // all condition = false
+            }
+        - switch...case default
+            switch (expression) {
+                case value_1:
+                    // run code
+                    break;
+                case value_2:
+                    // run code
+                    break;
+                case value_3:
+                    // run code
+                    break;
+                default:
+                    // run code
+            }
+    c. == và !=
+        . == và !=
+            . So sánh value
+            . So sánh kiểu “lỏng lẻo”
+            . Convert giá trị về kiểu “lớn hơn”
+        . ===, !==: so sánh tuyệt đối
+            . So sánh value + data type
+    d. Vòng gặp nâng cao:
+        - for ... in, forEach, for ... of
+            -----------------------------------------------------------------------------------------------------------------------
+            |   Loop Type   |   Dùng cho	                    |   Dùng khi nào
+            =======================================================================================================================
+            |   for...in	|   Object, Array (tránh dùng)	    |   Khi cần duyệt key của object hoặc chỉ mục (index) của một mảng
+            -----------------------------------------------------------------------------------------------------------------------
+            |   for...of	|   Array, String, Map, Set	        |   Khi cần duyệt giá trị của iterable
+            -----------------------------------------------------------------------------------------------------------------------
+            |   .forEach()	|   Array	                        |   Khi cần duyệt tất cả phần tử của mảng (không cần break)
+            |               |                                   |   Không thể dùng break hoặc return để dừng vòng lặp.
+            -----------------------------------------------------------------------------------------------------------------------
+            - Kết luận:
+                - Nếu duyệt object 👉 for...in.
+                - Nếu duyệt mảng 👉 for...of hoặc .forEach().
+                - Nếu cần break/continue 👉 dùng for...of.
+            - Cú pháp:
+                for (let i in object) {
+                    // code
+                }
+
+                for (let i of array) {
+                    // code
+                }
+
+                array.forEach((value, index) => {
+                    // code
+                });
+        - break and continue
+            -------------------------------------------------------------------------------------------------------------------------
+            |   Tính năng   |       break 🛑	                        |       continue ⏭️
+            =========================================================================================================================
+            | Ảnh hưởng     | Dừng toàn bộ vòng lặp                     | Bỏ qua vòng lặp hiện tại, tiếp tục vòng lặp tiếp theo
+            -------------------------------------------------------------------------------------------------------------------------
+            | Dùng khi nào? | Khi cần thoát khỏi vòng lặp ngay lập tức  | Khi cần bỏ qua một số điều kiện nhưng vẫn tiếp tục vòng lặp
