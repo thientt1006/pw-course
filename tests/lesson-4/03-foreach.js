@@ -2,8 +2,7 @@
 //      1
 //      2
 //      3
-
-let array = [1, 2, 3]
+let array = [1, 2, 3];
 
 // for
 console.log("Using for");
@@ -27,15 +26,16 @@ array.forEach((value, index) => {
 let sum = 0;
 let max = array[array.length - 1];
 let min = array[array.length - 1];
-for (let i of array) {
-    sum += i;
-    if (i > max) {
-        max = i;
+
+array.forEach(value => {
+    sum += value;
+    if (value > max) {
+        max = value;
     }
-    if (i < min) {
-        min = i;
+    else if (value < min) {
+        min = value;
     }
-}
+});
 
 console.log(`Sum: ${sum} - Max: ${max} - Min: ${min}`);
 

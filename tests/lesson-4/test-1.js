@@ -4,7 +4,7 @@ let mission = "Khám phá Vũ trụ K12";
 let crew = ["Thiên", "An", "Vi", "Hương", "Tuấn", "Minh", "Ánh", "Phong", "Nga", "Lợi", "Uyên"];
 
 function launchShip(crew) {
-    return `Chuẩn bị khởi động! Phi hành đoàn gồm: ${crew} sẽ đồng hành cùng bạn trong chuyến phiêu lưu <mission>!`;
+    return `Chuẩn bị khởi động! Phi hành đoàn gồm: ${crew.join(", ")} sẽ đồng hành cùng bạn trong chuyến phiêu lưu <mission>!`;
 }
 
 console.log(launchShip(crew).replace("<mission>", `"${mission}"`));

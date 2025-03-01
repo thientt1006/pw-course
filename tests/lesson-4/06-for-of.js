@@ -3,13 +3,16 @@
 function findFirstAndLastIndex(array, target) {
     let firstIndex = -1;
     let lastIndex = -1;
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] === target) {
+    let currentIndex = 0;
+
+    for (let value of array) {
+        if (value === target) {
             if (firstIndex === -1) {
-                firstIndex = i;
+                firstIndex = currentIndex;
             }
-            lastIndex = i;
+            lastIndex = currentIndex;
         }
+        currentIndex++;
     }
     return {firstIndex, lastIndex};
 }
